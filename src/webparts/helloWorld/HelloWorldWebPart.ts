@@ -1,14 +1,16 @@
 import { Version } from '@microsoft/sp-core-library';
 import {
-  BaseClientSideWebPart,
-  IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  BaseClientSideWebPart
 } from '@microsoft/sp-webpart-base';
+
 import {
+  IPropertyPaneConfiguration,
+  PropertyPaneTextField,
   PropertyPaneCheckbox,
   PropertyPaneDropdown,
   PropertyPaneToggle
 } from '@microsoft/sp-property-pane';
+
 import { escape } from '@microsoft/sp-lodash-subset';
 
 import styles from './HelloWorldWebPart.module.scss';
@@ -31,9 +33,10 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
           <div class="${ styles.row }">
             <div class="${ styles.column }">
               <span class="${ styles.title }">Welcome to SharePoint!</span>
-              <p class="${ styles.subTitle }">Customize SharePoint experiences using Web Parts.</p>
+              <p class="${ styles.subTitle }">Customize SharePoint experiences using web parts.</p>
               <p class="${ styles.description }">${escape(this.properties.description)}</p>
               <p class="${ styles.description }">${escape(this.properties.test)}</p>
+              <p class="${ styles.description }">Loading from ${escape(this.context.pageContext.web.title)}</p>
               <a href="https://aka.ms/spfx" class="${ styles.button }">
                 <span class="${ styles.label }">Learn more</span>
               </a>
